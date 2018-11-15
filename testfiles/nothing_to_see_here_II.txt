@@ -1,0 +1,14 @@
+#	Illustration	Titre du morceau	Artiste	Album	Genre	BPM	Durée	Tonalité	Commentaires	Date d'ajout	Lectures DJ
+1		rapture				130,00	02:25	C	8B	2018-11-11	6
+2		pussi				126,00	03:37	Abm	1A	2018-11-11	3
+3		dreams				124,00	02:36	Ebm	2A	2018-11-11	3
+4		skeler-x-ytho-vice				124,00	03:58	Gm	6A	2018-11-11	3
+5		100g				130,00	02:27	Em	9A	2018-11-11	4
+6		see-me				136,00	03:28	Ebm	2A	2018-11-11	3
+7		32-flows-ytho-x-skeler				132,00	02:54	Abm	1A	2018-11-11	3
+8		skeler-geneva				146,00	02:55	Fm	4A	2018-11-11	4
+9		ytho - lucid				132,00	02:12	Dbm	12A	2018-11-11	4
+10		skeler-nmh				115,00	03:03	Gm	6A	2018-11-11	2
+11		silk				110,00	03:03	Dm	7A	2018-11-11	5
+12		witching-hour				117,00	02:14	Fm	4A	2018-11-11	2
+13		skeler-waste				119,00	03:54	Fm	4A	2018-11-11	3
