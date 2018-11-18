@@ -9,10 +9,10 @@ class Graph(object):
         self.nodes = nodes
         self.matrix = [[float("inf") for _ in range(len(self.nodes))] for _ in range(len(self.nodes))]
     
-    def __repr__(self):
+    def __repr__(self, print_nodes=True):
         res = ""
-        for node in self.nodes:
-            res += "Node {} (index={}) with shift {}\n".format(node["name"], node["index"], node["shift"])
+        #for node in self.nodes:
+        #    res += "Node {} (index={}) with shift {}\n".format(node["name"], node["index"], node["shift"])
         for matrix_line in self.matrix:
             for element in matrix_line:
                 to_add = str(element) + "," + (" " * (5 -len(str(element))))

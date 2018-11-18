@@ -33,7 +33,8 @@ class TSPManager(object):
         """
 
         self.compute_graph()
-        self.perform_tsp()
+        path = self.perform_tsp()
+        self.print_results(path)
 
     def compute_graph(self):
         self.precompute_nodes()
@@ -64,4 +65,7 @@ class TSPManager(object):
 
         solver =  TSPSolver(self.graph, 2 * self.shifts_allowed + 1)
         solver.create_model()
-        solver.solve()
+        return solver.solve()
+
+    def print_results(self, path):
+        print(path)
