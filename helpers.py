@@ -27,5 +27,6 @@ tone_map={
     "E": [12, B],
 }
 
-def compute_distance(start_node, end_node):
-    pass
+def get_shifted_key_tone(tone, shift):
+    new_tone = (tone[0] - 1 - (5 * shift)) % 12 + 1
+    return [new_tone, tone[1]]
