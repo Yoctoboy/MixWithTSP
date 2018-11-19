@@ -33,8 +33,8 @@ class TSPManager(object):
         """
 
         self.compute_graph()
-        path = self.perform_tsp()
-        self.print_results(path)
+        path, value = self.perform_tsp()
+        self.print_results(path, value)
 
     def compute_graph(self):
         self.precompute_nodes()
@@ -67,8 +67,8 @@ class TSPManager(object):
         solver.create_model()
         return solver.solve()
 
-    def print_results(self, path):
-        print ("BEST PATH FOUND:")
+    def print_results(self, path, value):
+        print ("BEST PATH FOUND (value={}):".format(value))
         for edge in path:
             song = self.nodes[edge[0]]
             print(song["name"], song["bpm"], song["key_tone"], song["shift"])

@@ -29,7 +29,7 @@ class DistanceComputer(object):
         )
     
     def _get_shift_distance(self):
-        return 500 * (1 - self._are_shifts_compatible())
+        return 800 * (1 - self._are_shifts_compatible())
 
     def _get_bpm_distance(self):
         start_bpm, end_bpm = self.start_node["bpm"], self.end_node["bpm"]

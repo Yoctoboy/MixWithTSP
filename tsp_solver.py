@@ -30,7 +30,7 @@ class TSPSolver(object):
     def solve(self):
         self.solver.write("mod.lp")
         self.solver.solve()
-        return self.get_results()
+        return self.get_results(), int(self.solver.solution.get_objective_value())
 
     def prepare_solver(self):
         self.solver.objective.set_sense(self.solver.objective.sense.minimize)
