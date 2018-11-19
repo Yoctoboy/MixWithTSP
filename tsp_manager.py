@@ -3,7 +3,7 @@ import cplex
 
 from distance_computer import DistanceComputer
 from graph import Graph
-from helpers import get_shifted_key_tone
+from helpers import get_shifted_key_tone, tone_repr
 from tsp_solver import TSPSolver
 
 
@@ -39,38 +39,45 @@ class TSPManager(object):
     def compute_graph(self):
         self.precompute_nodes()
         self.graph = Graph(self.nodes)
-        for start_index, start_node in enumerate(self.nodes):
-            for end_index, end_node in enumerate(self.nodes):
+        for start_index, start_node in enumerate(self.nodes[1:]):
+            for end_index, end_node in enumerate(self.nodes[1:]):
                 if start_index != end_index:
                     dist = DistanceComputer(start_node, end_node).compute()
-                    self.graph.add_edge(start_index, end_index, dist)
-        print(self.graph)
-
+                    self.graph.add_edge(start_index + 1, end_index + 1, dist)
+        for i in range(len(self.nodes)):
+            self.graph.add_edge(0, i, 0)
+            self.graph.add_edge(i, 0, 0)
 
     def precompute_nodes(self):
         """
         Precomputes nodes (in case of key-shifting being allowed)
         """
 
+        self.nodes = [0]
         for song in self.songs:
             for shift in range(-self.shifts_allowed, self.shifts_allowed + 1):
                 current_song = deepcopy(song)
                 current_song["key_tone"] = get_shifted_key_tone(song["key_tone"], shift)
-                current_song["index"] = (2*self.shifts_allowed + 1) * (current_song["id"]) + (shift - self.shifts_allowed - 1)
+                current_song["index"] = (2*self.shifts_allowed + 1) * (current_song["id"]) + (shift - self.shifts_allowed)
                 current_song["shift"] = shift
-                print(current_song)
                 self.nodes.append(current_song)
     
     def perform_tsp(self):
+        """
+        Calls a TSPSolver object to solve the tsp on the instance
+        
+        Returns:
+            list, int -- optimal path, and its value
+        """
 
         solver =  TSPSolver(self.nodes, self.graph, 2 * self.shifts_allowed + 1)
         solver.create_model()
         return solver.solve()
 
     def print_results(self, path, value):
-        print ("BEST PATH FOUND (value={}):".format(value))
-        for edge in path:
-            song = self.nodes[edge[0]]
-            print(song["name"], song["bpm"], song["key_tone"], song["shift"])
-        song = self.nodes[path[-1][1]]
-        print(song["name"], song["bpm"], song["key_tone"], song["shift"])
+        print ("\nBEST PATH FOUND (value={}):\n".format(value))
+        print ("         Track name            -  BPM   - Tone - Key Shift")
+        for node in path:
+            song = self.nodes[node]
+            print("{:<30} - {:.2f} -  {:<3} - {:>2}".format(song["name"], round(song["bpm"], 2), tone_repr(song["key_tone"]), song["shift"]))
+        print("")

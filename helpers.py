@@ -30,3 +30,6 @@ tone_map={
 def get_shifted_key_tone(tone, shift):
     new_tone = (tone[0] - 1 - (5 * shift)) % 12 + 1
     return [new_tone, tone[1]]
+
+def tone_repr(tone):
+    return "{}{}".format(tone[0], tone[1])
