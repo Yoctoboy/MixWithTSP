@@ -3,7 +3,7 @@ import cplex
 
 class TSPSolver(object):
 
-    def __init__(self, graph, shifts_amount):
+    def __init__(self, nodes, graph, shifts_amount):
         """
         Constructor for TSPSolver
         
@@ -72,6 +72,10 @@ class TSPSolver(object):
     def get_xij_index(self, i, j):
         return i * self.graph_size + j
     
+    def get_edge_from_index(self, index):
+        out = index % self.graph_size
+        return (index - out) / self.graph_size, out
+
     def get_ui_index(self, i):
         return self.graph_size ** 2 + i
     
@@ -130,5 +134,33 @@ class TSPSolver(object):
     def get_results(self):
         path = []
         solution_values = self.solver.solution.get_values()
-        u_values = [solution_values[self.get_ui_index(i)] for i in range(self.graph_size)]
-        return u_values
+        used_edges = []
+        for var in range(self.graph_size ** 2):
+            if solution_values[var]:
+                used_edges.append(self.get_edge_from_index(var))
+        path = self.reconstruct_path(used_edges)
+        return path
+        
+    
+    def reconstruct_path(self, edges):
+        path = []
+        path.append(edges[0])
+        edges.remove(edges[0])
+
+        next_edge = True
+        while next_edge:
+            next_edge = False
+            for edge in edges:
+                if edge[0] == path[-1][1]:
+                    path.append(edge)
+                    edges.remove(edge)
+                    next_edge = True
+                    break
+            
+        while len(path) < self.songs_amount - 1:
+            for edge in edges:
+                if edge[1] == path[0][0]:
+                    path = [edge] + path
+                    edges.remove(edge)
+        print path
+        return path

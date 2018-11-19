@@ -63,9 +63,14 @@ class TSPManager(object):
     
     def perform_tsp(self):
 
-        solver =  TSPSolver(self.graph, 2 * self.shifts_allowed + 1)
+        solver =  TSPSolver(self.nodes, self.graph, 2 * self.shifts_allowed + 1)
         solver.create_model()
         return solver.solve()
 
     def print_results(self, path):
-        print(path)
+        print ("BEST PATH FOUND:")
+        for edge in path:
+            song = self.nodes[edge[0]]
+            print(song["name"], song["bpm"], song["key_tone"], song["shift"])
+        song = self.nodes[path[-1][1]]
+        print(song["name"], song["bpm"], song["key_tone"], song["shift"])
