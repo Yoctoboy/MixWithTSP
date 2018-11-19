@@ -83,6 +83,7 @@ class TSPSolver(object):
         self.add_outgoing_constraints()
         self.add_ingoing_constraints()
         self.add_edges_amount_constraint()
+        self.add_continuous_path_constraints()
         self.add_u_constraints()
     
     def add_outgoing_constraints(self):
@@ -117,6 +118,19 @@ class TSPSolver(object):
         self.solver.linear_constraints.add(lin_expr=row, senses=['E'], rhs=[self.songs_amount - 1])
         print ("Added 1 edges amount constraints")
 
+    def add_continuous_path_constraints(self):
+        """
+        These constraints need to be added because of the existence of subnodes
+        """
+        rows = []
+        for i in range(self.graph_size):
+            ind, val = [], []
+            for j in range(self.graph_size):
+                ind += [self.get_xij_index(i, j), self.get_xij_index(j, i)]
+                val += [1, -1]
+            rows.append(cplex.SparsePair(ind=ind, val=val))
+        self.solver.linear_constraints.add(lin_expr=rows, senses=['E'] * len(rows), rhs=[0] * len(rows))
+
     def add_u_constraints(self):
         rows = []
         for i in range(self.graph_size):
@@ -146,7 +160,7 @@ class TSPSolver(object):
         path = []
         path.append(edges[0])
         edges.remove(edges[0])
-
+        print(edges)
         next_edge = True
         while next_edge:
             next_edge = False
