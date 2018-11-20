@@ -1,7 +1,0 @@
-#	Illustration	Titre du morceau	Artiste	Album	Genre	BPM	Durée	Tonalité	Commentaires	Date d'ajout	Lectures DJ
-1		rapture				130,00	02:25	C	8B	2018-11-11	6
-2		pussi				126,00	03:37	Abm	1A	2018-11-11	3
-3		dreams				124,00	02:36	Ebm	2A	2018-11-11	3
-4		skeler-x-ytho-vice				124,00	03:58	Gm	6A	2018-11-11	3
-5		100g				130,00	02:27	Em	9A	2018-11-11	4
-6		see-me				136,15	03:28	Ebm	2A	2018-11-11	3

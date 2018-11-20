@@ -1,4 +1,6 @@
 import cplex
+import os
+import sys
 
 
 class TSPSolver(object):
@@ -27,12 +29,19 @@ class TSPSolver(object):
         self.add_constraints()
     
     def solve(self):
-        self.solver.write("mod.lp")
+        #self.solver.write("mod.lp")
         self.solver.solve()
         return self.get_results(), int(self.solver.solution.get_objective_value())
 
     def prepare_solver(self):
+        self.set_sense()
+        self.set_variables()
+        self.set_parameters()
+    
+    def set_sense(self):
         self.solver.objective.set_sense(self.solver.objective.sense.minimize)
+    
+    def set_variables(self):
         obj = self.get_obj()
         ub = self.get_ub()
         types = (self.graph_size ** 2) * [self.solver.variables.type.binary] + \
@@ -50,6 +59,10 @@ class TSPSolver(object):
         for i in range(self.graph_size):
             colnames.append("u_{}".format(i))
         self.solver.variables.set_names([(i, colnames[i]) for i in range(self.total_variables)])
+    
+    def set_parameters(self):
+        #self.solver.parameters.mip.display.set(0)
+        pass
     
     def get_obj(self):
         obj = [0 for _ in range(self.total_variables)]

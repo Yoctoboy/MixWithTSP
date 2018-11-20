@@ -55,10 +55,10 @@ class DataLoader(object):
         result = {}
         song_list = self.get_actual_list(l)
         result["id"] = int(song_list[0])
-        result["name"] = song_list[1]
-        result["bpm"] = float(song_list[2].replace(',', '.'))
-        result["track_length"] = self.get_track_length(song_list[3])
-        result["key_tone"] = self.get_key_tone(song_list[4])
+        result["name"] = song_list[2]
+        result["bpm"] = float(song_list[6].replace(',', '.'))
+        result["track_length"] = self.get_track_length(song_list[7])
+        result["key_tone"] = self.get_key_tone(song_list[8])
         return result
 
     def get_actual_list(self, l):
@@ -72,7 +72,7 @@ class DataLoader(object):
             list -- raw data list of one song
         """
 
-        return filter(lambda x: x!='', l.split("	"))
+        return l.split("	")
 
     def get_track_length(self, s):
         """
