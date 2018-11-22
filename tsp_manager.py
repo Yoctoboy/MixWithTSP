@@ -39,14 +39,11 @@ class TSPManager(object):
     def compute_graph(self):
         self.precompute_nodes()
         self.graph = Graph(self.nodes)
-        for start_index, start_node in enumerate(self.nodes[1:]):
-            for end_index, end_node in enumerate(self.nodes[1:]):
+        for start_index, start_node in enumerate(self.nodes):
+            for end_index, end_node in enumerate(self.nodes):
                 if start_index != end_index:
                     dist = DistanceComputer(start_node, end_node).compute()
-                    self.graph.add_edge(start_index + 1, end_index + 1, dist)
-        for i in range(len(self.nodes)):
-            self.graph.add_edge(0, i, 0)
-            self.graph.add_edge(i, 0, 0)
+                    self.graph.add_edge(start_index, end_index, dist)
 
     def precompute_nodes(self):
         """

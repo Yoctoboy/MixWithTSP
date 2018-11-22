@@ -13,13 +13,18 @@ class DistanceComputer(object):
         self.end_node = end_node
 
     def compute(self):
+        if self.start_node == 0:
+            return self._get_bonus_shifted_distance()
+        elif self.end_node == 0:
+            return 0
         if not (self._are_bpm_compatible() and self._are_tones_compatible()):
             return 1000000
-        result = 0
-        #result += self._get_shift_distance()
-        result += self._get_bpm_distance()
-        result += self._get_bonus_shifted_distance()
-        return int(result ** 1.3)
+        else:
+            result = 0
+            #result += self._get_shift_distance()
+            result += self._get_bpm_distance()
+            result += self._get_bonus_shifted_distance()
+            return int(result ** 1.3)
     
     def _are_tones_compatible(self):
 
@@ -31,7 +36,8 @@ class DistanceComputer(object):
         )
     
     def _are_bpm_compatible(self):
-        start_bpm, end_bpm = self.start_node["bpm"], self.end_node["bpm"]
+        start_bpm, end_bpm = float(self.start_node["bpm"]), float(self.end_node["bpm"])
+        print (abs(start_bpm - end_bpm) / end_bpm)
         return (abs(start_bpm - end_bpm) / end_bpm) < 0.06
 
     def _get_bpm_distance(self):
