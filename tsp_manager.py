@@ -51,13 +51,15 @@ class TSPManager(object):
         """
 
         self.nodes = [0]
+        current_index = 0
         for song in self.songs:
             for shift in range(-self.shifts_allowed, self.shifts_allowed + 1):
                 current_song = deepcopy(song)
                 current_song["shifted_key_tone"] = get_shifted_key_tone(song["key_tone"], shift)
-                current_song["index"] = (2*self.shifts_allowed + 1) * (current_song["id"]) + (shift - self.shifts_allowed)
+                current_song["index"] = current_index
                 current_song["shift"] = shift
                 self.nodes.append(current_song)
+                current_index += 1
     
     def perform_tsp(self):
         """

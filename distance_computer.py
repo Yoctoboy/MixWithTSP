@@ -37,7 +37,6 @@ class DistanceComputer(object):
     
     def _are_bpm_compatible(self):
         start_bpm, end_bpm = float(self.start_node["bpm"]), float(self.end_node["bpm"])
-        print (abs(start_bpm - end_bpm) / end_bpm)
         return (abs(start_bpm - end_bpm) / end_bpm) < 0.06
 
     def _get_bpm_distance(self):
@@ -46,4 +45,4 @@ class DistanceComputer(object):
         return int((abs(start_bpm - end_bpm) / end_bpm) * 250) ** 2
 
     def _get_bonus_shifted_distance(self):
-        return 150 * (self.end_node["shift"] ** 2)
+        return 225 * (self.end_node["shift"] ** 2)
