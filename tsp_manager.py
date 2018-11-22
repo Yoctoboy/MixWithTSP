@@ -75,7 +75,7 @@ class TSPManager(object):
 
     def print_results(self, path, value):
         print ("\nBEST PATH FOUND (value={}):\n".format(value))
-        print ("         Track name            |  BPM   | Tone | Shifted Tone | Key Shift")
+        print ("                 Track name                   |  BPM   | Tone | Shifted Tone | Key Shift")
         print ("----------------------------------------------------------")
         for node in path:
             song = self.nodes[node]

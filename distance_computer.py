@@ -14,17 +14,18 @@ class DistanceComputer(object):
 
     def compute(self):
         if self.start_node == 0:
-            return self._get_bonus_shifted_distance()
+            result = self._get_bonus_shifted_distance()
         elif self.end_node == 0:
-            return 0
-        if not (self._are_bpm_compatible() and self._are_tones_compatible()):
-            return 1000000
+            result = 0
+        elif not (self._are_bpm_compatible() and self._are_tones_compatible()):
+            result = 1000000
+            result += self._get_bonus_shifted_distance()
         else:
             result = 0
-            #result += self._get_shift_distance()
             result += self._get_bpm_distance()
             result += self._get_bonus_shifted_distance()
-            return int(result ** 1.3)
+            result = int(result ** 1.3)
+        return result
     
     def _are_tones_compatible(self):
 
