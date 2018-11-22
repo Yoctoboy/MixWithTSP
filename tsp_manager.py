@@ -79,5 +79,5 @@ class TSPManager(object):
         print ("----------------------------------------------------------")
         for node in path:
             song = self.nodes[node]
-            print("{:<30} | {:6.2f} |  {:<3} |      {:<3}     |    {:>2}".format(song["name"], round(song["bpm"], 2), tone_repr(song["key_tone"]), tone_repr(song["shifted_key_tone"]), song["shift"]))
+            print("{:<45} | {:6.2f} |  {:<3} |      {:<3}     |    {:>2}".format(song["name"], round(song["bpm"], 2), tone_repr(song["key_tone"]), tone_repr(song["shifted_key_tone"]), song["shift"]))
         print("")
