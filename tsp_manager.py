@@ -51,7 +51,7 @@ class TSPManager(object):
         """
 
         self.nodes = [0]
-        current_index = 0
+        current_index = 1
         for song in self.songs:
             for shift in range(-self.shifts_allowed, self.shifts_allowed + 1):
                 current_song = deepcopy(song)
@@ -76,7 +76,7 @@ class TSPManager(object):
     def print_results(self, path, value):
         print ("\nBEST PATH FOUND (value={}):\n".format(value))
         print ("                 Track name                   |  BPM   | Tone | Shifted Tone | Key Shift")
-        print ("----------------------------------------------------------")
+        print ("----------------------------------------------------------------------------------------")
         for node in path:
             song = self.nodes[node]
             print("{:<45} | {:6.2f} |  {:<3} |      {:<3}     |    {:>2}".format(song["name"], round(song["bpm"], 2), tone_repr(song["key_tone"]), tone_repr(song["shifted_key_tone"]), song["shift"]))
