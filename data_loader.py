@@ -4,13 +4,13 @@ from helpers import tone_map
 from tsp_manager import TSPManager
 
 
-def get_tsp_manager(filename, shifts_allowed):
-    data_loader = DataLoader(filename, shifts_allowed)
+def get_tsp_manager(filename, shifts_allowed, result_file):
+    data_loader = DataLoader(filename, shifts_allowed, result_file)
     return data_loader.load()
 
 
 class DataLoader(object):
-    def __init__(self, filename, shifts_allowed):
+    def __init__(self, filename, shifts_allowed, result_file):
 
         """Constructor for Dataloader
         
@@ -21,6 +21,7 @@ class DataLoader(object):
 
         self.filename = filename
         self.shifts_allowed = shifts_allowed
+        self.result_file = result_file
     
     def load(self):
         """
@@ -37,7 +38,7 @@ class DataLoader(object):
             song_dict = self.get_song_dict(line[:-1])
             songs.append(song_dict)
 
-        manager = TSPManager(songs, self.shifts_allowed)
+        manager = TSPManager(songs, self.shifts_allowed, self.result_file)
         
         return manager
     

@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 from copy import deepcopy
 import cplex
 
@@ -8,7 +10,7 @@ from tsp_solver import TSPSolver
 
 
 class TSPManager(object):
-    def __init__(self, songs, shifts_allowed):
+    def __init__(self, songs, shifts_allowed, result_file):
         """
         Constructor for the TSPManager
         
@@ -21,6 +23,7 @@ class TSPManager(object):
         self.songs = songs
         self.shifts_allowed = shifts_allowed
         self.solver = cplex.Cplex()
+        self.result_file = result_file
 
         # Filled during process
         self.nodes = []
@@ -74,10 +77,11 @@ class TSPManager(object):
         return solver.solve()
 
     def print_results(self, path, value):
-        print ("\nBEST PATH FOUND (value={}):\n".format(value))
-        print ("                 Track name                   |  BPM   | Tone | Shifted Tone | Key Shift")
-        print ("----------------------------------------------------------------------------------------")
+        file = open(self.result_file, 'w+')
+        print ("\nBEST PATH FOUND (value={}):\n".format(value), file=file)
+        print ("                 Track name                   |  BPM   | Tone | Shifted Tone | Key Shift", file=file)
+        print ("----------------------------------------------------------------------------------------", file=file)
         for node in path:
             song = self.nodes[node]
-            print("{:<45} | {:6.2f} |  {:<3} |      {:<3}     |    {:>2}".format(song["name"], round(song["bpm"], 2), tone_repr(song["key_tone"]), tone_repr(song["shifted_key_tone"]), song["shift"]))
+            print("{:<45} | {:6.2f} |  {:<3} |      {:<3}     |    {:>2}".format(song["name"], round(song["bpm"], 2), tone_repr(song["key_tone"]), tone_repr(song["shifted_key_tone"]), song["shift"]), file=file)
         print("")

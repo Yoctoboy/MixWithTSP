@@ -9,7 +9,7 @@ class Graph(object):
         self.nodes = nodes
         self.matrix = [[float("inf") for _ in range(len(self.nodes))] for _ in range(len(self.nodes))]
     
-    def __repr__(self, print_nodes=True):
+    def __repr__(self):
         res = ""
         #for node in self.nodes:
         #    res += "Node {} (index={}) with shift {}\n".format(node["name"], node["index"], node["shift"])
