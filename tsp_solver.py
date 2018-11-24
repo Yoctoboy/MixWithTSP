@@ -145,7 +145,6 @@ class TSPSolver(object):
     def get_results(self):
         path = []
         solution_values = self.solver.solution.get_values()
-        import ipdb; ipdb.set_trace()
         used_edges = []
         for var in range(self.graph_size ** 2):
             if solution_values[var] > 0.5:
@@ -165,14 +164,12 @@ class TSPSolver(object):
     
     def reconstruct_path(self, edges):
         print "path"
-        print edges
         edges_path = []
         edges_path.append(edges[0])
         edges.remove(edges[0])
         next_edge = True
         while next_edge:
             next_edge = False
-            print edges_path
             for edge in edges:
                 if edge[0] == edges_path[-1][1]:
                     edges_path.append(edge)
