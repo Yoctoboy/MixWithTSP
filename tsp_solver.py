@@ -163,7 +163,6 @@ class TSPSolver(object):
         return self.graph_size ** 2 + i
     
     def reconstruct_path(self, edges):
-        print "path"
         edges_path = []
         edges_path.append(edges[0])
         edges.remove(edges[0])
@@ -186,6 +185,5 @@ class TSPSolver(object):
         node_path = []
         for edge in edges_path[1:]:
             node_path.append(edge[0])
-        print "path ok"
 
         return node_path

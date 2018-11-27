@@ -2,6 +2,7 @@ from __future__ import print_function
 
 from copy import deepcopy
 import cplex
+import sys
 
 from distance_computer import DistanceComputer
 from graph import Graph
@@ -77,7 +78,7 @@ class TSPManager(object):
         return solver.solve()
 
     def print_results(self, path, value):
-        file = open(self.result_file, 'w+')
+        file = open(self.result_file, 'w+') if self.result_file else sys.stdout
         print ("\nBEST PATH FOUND (value={}):\n".format(value), file=file)
         print ("                 Track name                   |  BPM   | Tone | Shifted Tone | Key Shift", file=file)
         print ("----------------------------------------------------------------------------------------", file=file)
