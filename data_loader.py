@@ -1,4 +1,5 @@
 from datetime import datetime
+import io
 
 from helpers import tone_map
 from tsp_manager import TSPManager
@@ -32,7 +33,7 @@ class DataLoader(object):
         """
 
         
-        data = open(self.filename, "r").readlines()
+        data = io.open(self.filename, "r", encoding='utf-16-le').readlines()
         songs = []
         for line in data[1:]:
             song_dict = self.get_song_dict(line[:-1])
@@ -47,33 +48,20 @@ class DataLoader(object):
         Transforms a line of a file into a song dictionnary
         
         Arguments:
-            l {list} -- string of one line of data
+            l {string} -- string of one line of data
         
         Returns:
             dict -- song dictionary
         """
 
         result = {}
-        song_list = self.get_actual_list(l)
+        song_list = l.split("	")
         result["id"] = int(song_list[0])
         result["name"] = song_list[2]
         result["bpm"] = float(song_list[6].replace(',', '.'))
         result["track_length"] = self.get_track_length(song_list[7])
         result["key_tone"] = self.get_key_tone(song_list[8])
         return result
-
-    def get_actual_list(self, l):
-        """
-        Returns the actual list correctly split
-        
-        Arguments:
-            l {string} -- input string
-        
-        Returns:
-            list -- raw data list of one song
-        """
-
-        return l.split("	")
 
     def get_track_length(self, s):
         """
