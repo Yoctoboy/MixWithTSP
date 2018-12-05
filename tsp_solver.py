@@ -63,7 +63,7 @@ class TSPSolver(object):
     def set_parameters(self):
         #self.solver.parameters.mip.display.set(0)
         #clique cuts
-        self.solver.parameters.mip.cuts.cliques.set(2)
+        #self.solver.parameters.mip.cuts.cliques.set(2)
         pass
     
     def get_obj(self):

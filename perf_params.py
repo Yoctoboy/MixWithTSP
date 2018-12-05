@@ -9,8 +9,8 @@ files_list = ["testfiles/lewitchwavemix.txt",
               "testfiles/waveULTIMATEMEGAMIX2K18BEDODOSLAKMEISTER.txt",
               "testilfes/nothing_to_see_here_II.txt"]
 shifts_list = [1]
-clique_param_list = [0,1,2,3]
-gomory_param_list = [-1, 0, 1, 2]
+clique_param_list = [0, 1]
+gomory_param_list = [0, 1, 2]
 covercuts_param_list = [-1, 0, 1, 2, 3]
 
 for filename, shift, clique, gomory, covercuts in itertools.product(files_list, 
@@ -45,6 +45,6 @@ for filename, shift, clique, gomory, covercuts in itertools.product(files_list,
     with open("res.txt", "a+") as f:
         f.write("####################################################\n")
         f.write("File: {} with {} shifts\n".format(filename, shift))
-        f.write("Cliques: {} - Gomory: {} - Covers: {}\n".format(clique, coefreduce, covercuts))
+        f.write("Cliques: {} - Gomory: {} - Covers: {}\n".format(clique, gomory, covercuts))
         f.write("CPU time elapsed: {}s - Nodes explored: {}\n".format(round(end_clock - start_clock, 2), solver.solver.solution.progress.get_num_nodes_processed()))
         f.write("####################################################\n\n\n")
