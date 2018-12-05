@@ -5,7 +5,7 @@ from helpers import tone_map
 from tsp_manager import TSPManager
 
 
-def get_tsp_manager(filename, shifts_allowed, result_file):
+def get_tsp_manager(filename, shifts_allowed, result_file=None):
     data_loader = DataLoader(filename, shifts_allowed, result_file)
     return data_loader.load()
 

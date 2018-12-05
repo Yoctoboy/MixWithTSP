@@ -62,6 +62,8 @@ class TSPSolver(object):
     
     def set_parameters(self):
         #self.solver.parameters.mip.display.set(0)
+        #clique cuts
+        self.solver.parameters.mip.cuts.cliques.set(2)
         pass
     
     def get_obj(self):
@@ -98,7 +100,7 @@ class TSPSolver(object):
                 ind += [self.get_xij_index(index, j) for j in range(self.graph_size) if j not in sub_nodes_indices]
             rows.append(cplex.SparsePair(ind=ind, val=[1] * len(ind)))
         self.solver.linear_constraints.add(lin_expr=rows, senses=['E'] * len(rows), rhs=[1] * len(rows))
-        print ("Added {} outgoing constraints".format(len(rows)))
+        #print ("Added {} outgoing constraints".format(len(rows)))
     
     def add_ingoing_constraints(self):
         rows = []
@@ -109,7 +111,7 @@ class TSPSolver(object):
                 ind += [self.get_xij_index(i, index) for i in range(self.graph_size) if i not in sub_nodes_indices]
             rows.append(cplex.SparsePair(ind=ind, val=[1] * len(ind)))
         self.solver.linear_constraints.add(lin_expr=rows, senses=['E'] * len(rows), rhs=[1] * len(rows))
-        print ("Added {} ingoing constraints".format(len(rows)))
+        #print ("Added {} ingoing constraints".format(len(rows)))
 
     def add_continuous_path_constraints(self):
         """
@@ -134,7 +136,7 @@ class TSPSolver(object):
                     val = [1, -1, self.songs_amount]
                     rows.append(cplex.SparsePair(ind=ind, val=val))
         self.solver.linear_constraints.add(lin_expr=rows, senses=['L'] * len(rows), rhs=[self.songs_amount - 1] * len(rows))
-        print ("Added {} u variables constraints".format(len(rows)))
+        #print ("Added {} u variables constraints".format(len(rows)))
 
     def get_nodes_associated_to_song(self, song_index):
         if not song_index:

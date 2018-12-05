@@ -78,7 +78,7 @@ class TSPManager(object):
         return solver.solve()
 
     def print_results(self, path, value):
-        file = open(self.result_file, 'w+') if self.result_file else sys.stdout
+        file = open(self.result_file, 'a+') if self.result_file else sys.stdout
         print ("\nBEST PATH FOUND (value={}):\n".format(value), file=file)
         print ("                 Track name                   |  BPM   | Tone | Shifted Tone | Key Shift", file=file)
         print ("----------------------------------------------------------------------------------------", file=file)
