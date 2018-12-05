@@ -10,13 +10,13 @@ files_list = ["testfiles/lewitchwavemix.txt",
               "testilfes/nothing_to_see_here_II.txt"]
 shifts_list = [1]
 clique_param_list = [0,1,2,3]
-coefreduce_param_list = [-1, 0, 1, 2, 3]
+gomory_param_list = [-1, 0, 1, 2]
 covercuts_param_list = [-1, 0, 1, 2, 3]
 
-for filename, shift, clique, coefreduce, covercuts in itertools.product(files_list, 
+for filename, shift, clique, gomory, covercuts in itertools.product(files_list, 
                                                                 shifts_list,
                                                                 clique_param_list,
-                                                                coefreduce_param_list,
+                                                                gomory_param_list,
                                                                 covercuts_param_list, 
                                                                 ):
     tsp_manager = get_tsp_manager(filename, shift)
@@ -30,7 +30,7 @@ for filename, shift, clique, coefreduce, covercuts in itertools.product(files_li
 
     # params
     solver.solver.parameters.mip.cuts.cliques.set(clique)
-    solver.solver.parameters.preprocessing.coeffreduce.set(coefreduce)
+    solver.solver.parameters.mip.cuts.gomory.set(gomory)
     solver.solver.parameters.mip.cuts.covers.set(covercuts)
 
     start_clock = time.clock()
@@ -39,12 +39,12 @@ for filename, shift, clique, coefreduce, covercuts in itertools.product(files_li
     #import ipdb; ipdb.set_trace()
     print("####################################################")
     print("File: {} with {} shifts".format(filename, shift))
-    print("Cliques: {} - Coefreduce: {} - Covers: {}".format(clique, coefreduce, covercuts))
+    print("Cliques: {} - Gomory: {} - Covers: {}".format(clique, gomory, covercuts))
     print("CPU time elapsed: {}s - Nodes explored: {}\n".format(round(end_clock - start_clock, 2), solver.solver.solution.progress.get_num_nodes_processed()))
 
     with open("res.txt", "a+") as f:
         f.write("####################################################\n")
         f.write("File: {} with {} shifts\n".format(filename, shift))
-        f.write("Cliques: {} - Coefreduce: {} - Covers: {}\n".format(clique, coefreduce, covercuts))
+        f.write("Cliques: {} - Gomory: {} - Covers: {}\n".format(clique, coefreduce, covercuts))
         f.write("CPU time elapsed: {}s - Nodes explored: {}\n".format(round(end_clock - start_clock, 2), solver.solver.solution.progress.get_num_nodes_processed()))
         f.write("####################################################\n\n\n")
