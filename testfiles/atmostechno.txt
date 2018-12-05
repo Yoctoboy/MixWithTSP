@@ -1,0 +1,13 @@
+#	Illustration	Titre du morceau	Artiste	Album	Genre	BPM	Durée	Tonalité	Commentaires	Date d'ajout	Lectures DJ
+1		Fraunhofer Diffraction -  freezing_rain				127,00	09:04	Cm		2018-11-24	0
+2		Fraunhofer Diffraction - azure_reflection				126,98	08:34	Cm		2018-11-24	0
+3		Fraunhofer Diffraction - into_the_frozen_lands				127,02	04:32	Fm		2018-11-24	0
+4		Fraunhofer Diffraction - natural_selection				127,00	08:34	F#m		2018-11-24	0
+5		Fraunhofer Diffraction - no_warmth				126,99	07:36	Gm		2018-11-24	0
+6		PALACE X AMANEOG - BLINK				128,00	05:16	Ebm		2018-11-24	0
+7		Take Me Back	Fraunhofer Diffraction	Ultima Ratio	Wave	122,87	06:45	Em	https://open.spotify.com/track/3M4uheP6uHO3hGuAa9rxvr	2018-11-24	0
+8		Someday	Fraunhofer Diffraction	Ultima Ratio	Wave	122,83	06:00	Ebm	https://open.spotify.com/track/4ju8TIFfBUdsUW3LUZpqMb	2018-11-24	0
+9		Everything You Need	Fraunhofer Diffraction	Ultima Ratio	Wave	122,83	05:35	Dm	https://open.spotify.com/track/2wOOYZAfiLU2Aeg3DIxNPY	2018-11-24	0
+10		Leather Collar	Fraunhofer Diffraction	Ultima Ratio	Wave	122,94	06:23	Dm	https://open.spotify.com/track/3aggWBtYdGQJZnggZtAa5p	2018-11-24	0
+11		Alone	Fraunhofer Diffraction	Ultima Ratio	Wave	122,76	06:25	Dbm	https://open.spotify.com/track/30784jdEtdl1wtThCJhq2D	2018-11-24	0
+12		Ultima Ratio	Fraunhofer Diffraction	Ultima Ratio	Wave	122,71	07:40	Gm	https://open.spotify.com/track/06CAxXAwbXgZMVFsz2y0Rd	2018-11-24	0

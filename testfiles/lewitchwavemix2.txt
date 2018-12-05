@@ -1,0 +1,24 @@
+#	Illustration	Titre du morceau	Artiste	Album	Genre	BPM	Durée	Tonalité	Commentaires	Date d'ajout	Lectures DJ
+1		Dreams	Y tho.			124,00	02:36	Ebm		2018-11-02	3
+2		Expansion	CLFRD	Plastician Presents - Wavepool 2	Wave	130,00	03:16	Ebm	https://open.spotify.com/track/6NCLQheJJDquZfIXMlhZn8	2018-11-02	3
+3		Awakening	Fraunhofer diffraction		Punk;Punk Rock;Hardcore	123,00	03:30	Abm		2018-11-02	5
+4		Tel Aviv	Skeler	Tel Aviv		134,00	02:12	Dbm		2018-11-02	5
+5		In the Dark	CLFRD	Growth	Wave	125,00	03:23	E	https://open.spotify.com/track/0HVxqcv2nPsel6CWU0bXAf	2018-11-02	2
+6		WiFi	Deadcrow	Night Wonder	Vapor Twitch	125,01	03:44	Bbm	https://open.spotify.com/track/0HIZdebT7gtC6LRfrPMJ6S	2018-11-02	4
+7		V I C E	skeler. & y tho 			124,00	03:59	Gm		2018-11-02	2
+8		Higher	WEVLTH			107,00	04:48	Am		2018-11-02	1
+9		Everlasting	Kyddiekafka	Everlasting	Wave	126,00	03:37	Dm	https://open.spotify.com/track/3c0dCdw4LqCCZwkn3rdsGR	2018-11-02	2
+10		awakening	CHVRN	Fall		122,00	03:20	Am	Visit http://chvrn.bandcamp.com	2018-11-02	2
+11		Pairplay	Brothel	Pairplay	Vapor Twitch	120,02	02:24	Em	https://open.spotify.com/track/3HDBBAxWigDNg2Hc4PsQeG	2018-11-02	1
+12		shxde - yume				140,00	03:42	F#m		2018-11-02	2
+13		mystxrivl-sokos-pixel				140,00	02:45	Ebm		2018-11-02	1
+14		red-neon-yusoul-vol-iii				130,00	04:14	Gm		2018-11-02	1
+15		Taurine	Dyzphoria	Taurine	Wave	150,00	03:24	F#m	https://open.spotify.com/track/75bfH2B3aSMK6Z2ISCKG6B	2018-11-02	1
+16		Dreamcatcher	Sorsari	Sacred EP	Vapor Twitch	120,00	04:57	Dbm	https://open.spotify.com/track/6QZrCg92L7L32tdyJ7P0AN	2018-11-02	1
+17		Icefire	Deadcrow	Icefire	Vapor Twitch	130,00	03:34	Dbm	https://open.spotify.com/track/2TWwg4g97uxJDWh2vc7iks	2018-11-02	1
+18		4everwithyou				120,00	03:13	G		2018-11-02	0
+19		da-vosk-docta-ostatni-dzien-lata-from-czelusc-w3				140,00	02:50	F#m		2018-11-02	0
+20		do-you				125,00	04:15	Dm		2018-11-02	0
+21		elixir-w-unnholy				140,00	03:29	Am		2018-11-02	0
+22		skit-x-cvrl-nova-1				120,00	04:24	Bm		2018-11-02	0
+23		toko				120,00	03:38	Abm		2018-11-02	0
