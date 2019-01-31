@@ -11,19 +11,20 @@ from tsp_solver import TSPSolver
 
 
 class TSPManager(object):
-    def __init__(self, songs, shifts_allowed, result_file):
+    def __init__(self, songs, shifts_allowed, delete_ok, result_file):
         """
         Constructor for the TSPManager
         
         Arguments:
-            object {[type]} -- [description]
             songs {list} -- list of songs
             shifts_allowed {int} -- amount of key shifts allowed for the mix (recommended value : <=1)
+            delete_ok {bool} -- defines whether not including songs is allowed by the user
         """
         
         self.songs = songs
         self.shifts_allowed = shifts_allowed
         self.solver = cplex.Cplex()
+        self.delete_ok = delete_ok
         self.result_file = result_file
 
         # Filled during process
