@@ -12,7 +12,7 @@ MixWithTSP takes as input a `.txt` file containing data (BPM, Tonality) about so
 
 You'll need the CPLEX omptimizer python API installed on your computer to use it.
 `git clone` this repo, `cd` into it and run the following command:</br>
-`python mixtsp.py <your file> <shifts allowed>`
+`python mixtsp.py -h` and learn to fkin read
 
 
 #### Current Features
