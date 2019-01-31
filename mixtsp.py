@@ -11,12 +11,11 @@ if __name__ == "__main__":
     parser.add_argument("--result_file", type=str, nargs='?', default=None)
     parser.add_argument("--delete_ok", type=bool, nargs='?', default=False)
     args = parser.parse_args()
-    print args
 
     filename = args.file
     shifts_allowed = args.shifts_allowed
     delete_ok = args.delete_ok
     result_file = args.result_file
-    print filename, shifts_allowed, delete_ok, result_file
+
     tsp_manager = get_tsp_manager(filename, shifts_allowed, delete_ok, result_file)
     tsp_manager.perform()
