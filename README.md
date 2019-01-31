@@ -8,6 +8,13 @@ A utility for finding out the best sequence of songs in a mix using IBM's Cplex 
 MixWithTSP takes as input a `.txt` file containing data (BPM, Tonality) about songs as exported by rekordbox. It then computes the best sequence of these songs according to *mixing theory* by trying to minimize a given distance.
 
 
+#### How to use it
+
+You'll need the CPLEX omptimizer python API installed on your computer to use it.
+`git clone` this repo, `cd` into it and run the following command:</br>
+`python mixtsp.py <your file> <shifts allowed>`
+
+
 #### Current Features
 
 - Allow some tracks to be shifted by one or more semitones (is penalized by the objective function)
