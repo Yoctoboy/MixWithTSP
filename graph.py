@@ -1,6 +1,7 @@
 class Graph(object):
     def __init__(self, nodes):
-        """Constructor for Graph
+        """
+        Constructor for Graph
         
         Arguments:
             nodes {list} -- list of nodes of the graph

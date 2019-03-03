@@ -74,13 +74,16 @@ class TSPManager(object):
             list, int -- optimal path, and its value
         """
 
-        solver =  TSPSolver(self.nodes, self.graph, 2 * self.shifts_allowed + 1)
+        solver =  TSPSolver(self.nodes, self.graph, 2 * self.shifts_allowed + 1, self.delete_ok)
         solver.create_model()
         return solver.solve()
 
     def print_results(self, path, value):
         file = open(self.result_file, 'w+') if self.result_file else sys.stdout
-        print ("\nBEST PATH FOUND (value={}):\n".format(value), file=file)
+        if not self.delete_ok:
+            print ("\nBEST PATH FOUND (value={}):\n".format(value), file=file)
+        else:
+            print ("\nBEST PATH FOUND (value={}, songs omitted:{}):\n".format(value, len(self.songs) - len(path)), file=file)
         print ("                 Track name                   |  BPM   | Tone | Shifted Tone | Key Shift", file=file)
         print ("----------------------------------------------------------------------------------------", file=file)
         for node in path:
