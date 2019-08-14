@@ -19,10 +19,11 @@ You'll need the CPLEX omptimizer python API installed on your computer to use it
 
 - Allow some tracks to be shifted by one or more semitones (is penalized by the objective function)
 
-- [IN PROGRESS] Allow the optimizer to not include one or more songs in the output mix
+- Allow the optimizer to not include one or more songs in the output mix
 
 
 #### More to come
 
-- Finding out the *ambiance* of a given sound, and take into account for even smoother mixes
+- Finding out the *ambiance* of a given sound, and take it into account for even smoother mixes
 - Using AI, Feature Extraction and rhythm detection to actually create a mix, with the transitions (and maybe even some effects)
+- Remove proprietary solver CPlex in the dependencies of this project and use GLPK or CVXPY instead
