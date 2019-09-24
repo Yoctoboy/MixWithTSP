@@ -23,7 +23,6 @@ class TSPManager(object):
         
         self.songs = songs
         self.shifts_allowed = shifts_allowed
-        self.solver = cplex.Cplex()
         self.result_file = result_file
 
         # Filled during process
@@ -73,7 +72,7 @@ class TSPManager(object):
             list, int -- optimal path, and its value
         """
 
-        solver =  TSPSolver(self.nodes, self.graph, 2 * self.shifts_allowed + 1)
+        solver = TSPSolver(self.nodes, self.graph, 2 * self.shifts_allowed + 1)
         solver.create_model()
         return solver.solve()
 
